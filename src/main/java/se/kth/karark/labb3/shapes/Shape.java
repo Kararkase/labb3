@@ -128,8 +128,7 @@ abstract public class Shape {
      * @param boxWidth
      * @param boxHeight
      */
-    final public void moveAndConstrain(
-            long elapsedTimeNs,
+    final public void moveAndConstrain(long elapsedTimeNs,
             double boxX, double boxY,
             double boxWidth, double boxHeight) {
         move(elapsedTimeNs);

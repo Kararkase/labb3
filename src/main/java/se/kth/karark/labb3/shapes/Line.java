@@ -45,7 +45,25 @@ public class Line extends Shape{
         x2 += getDx() * elapsedTimeNs / BILLION;
         y2 += getDy() * elapsedTimeNs / BILLION;
     }
+    @Override
+    public void constrain(double xMin, double yMin, double xMax, double yMax) {
+        double dx = getDx();
+        double dy = getDy();
 
+        if (getX() < xMin || x2 < xMin) {
+            dx = -dx;
+        } else if (getX() > xMax || x2 > xMax) {
+            dx = -dx;
+        }
+
+        if (getY() < yMin || y2 < yMin) {
+            dy = -dy;
+        } else if (getY() > yMax || y2 > yMax) {
+            dy = -dy;
+        }
+        setVelocity(dx, dy);
+    }
+    
     @Override
     public String toString() {
         return super.toString() +
